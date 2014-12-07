@@ -17,8 +17,13 @@ data$DateTime=strptime(data$DateTime,'%d/%m/%Y %H:%M:%S')
 
 Sys.setlocale("LC_TIME", "English")
 
-png('plot1.png')
-plot1=hist(data$Global_active_power,main="Global Active Power", 
-           xlab="Global Active Power (kilowatts)" ,ylab="Frequency" ,col="red")
+
+
+png('plot3.png')
+plot3=plot(data$DateTime,data$Sub_metering_1, type="l", ylab="Energy sub metering",xlab='')
+lines(data$DateTime,data$Sub_metering_2,col='red', type="l")
+lines(data$DateTime,data$Sub_metering_3,col='blue', type="l")
+legend('topright',lwd=1,col=c('black','red','blue'),
+       legend=c('Sub_metering_1','Sub_metering_2','Sub_metering_3'))
 dev.off()
 

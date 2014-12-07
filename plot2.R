@@ -17,8 +17,8 @@ data$DateTime=strptime(data$DateTime,'%d/%m/%Y %H:%M:%S')
 
 Sys.setlocale("LC_TIME", "English")
 
-png('plot1.png')
-plot1=hist(data$Global_active_power,main="Global Active Power", 
-           xlab="Global Active Power (kilowatts)" ,ylab="Frequency" ,col="red")
+png('plot2.png')
+plot2=plot(data$DateTime,data$Global_active_power, type="l", 
+           ylab="Global Active Power (kilowatts)",xlab='')
 dev.off()
 
